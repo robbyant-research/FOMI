@@ -243,6 +243,7 @@
     var max = parseFloat(root.getAttribute('data-max')) || 100;
     var unit = root.getAttribute('data-unit') || '%';
     var ticks = 4;
+    var designWidth = parseFloat(root.getAttribute('data-chart-width'));
 
     // Legend
     if (legend) {
@@ -260,11 +261,14 @@
     tip.className = 'chart__tip'; tip.hidden = true;
 
     function draw() {
-      var W = Math.max(host.clientWidth, 560);
+      var displayWidth = Math.max(host.clientWidth, 560);
+      var W = designWidth || displayWidth;
+      var scale = displayWidth / W;
       var H = 240, m = { t: 20, r: 30, b: 30, l: 60 };
       var pw = W - m.l - m.r, ph = H - m.t - m.b;
       var svg = el('svg', { 'class': 'chart__svg', viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, 'aria-hidden': 'true' });
-      svg.style.width = W + 'px';
+      svg.style.width = displayWidth + 'px';
+      svg.style.height = (H * scale) + 'px';
       var y = function (v) { return m.t + ph * (1 - v / max); };
       var band = pw / data.cats.length;
       var gap = band * 0.18, inner = band - 2 * gap, n = data.series.length;
@@ -322,9 +326,9 @@
             tip.appendChild(row);
           });
           tip.hidden = false;
-          var left = m.l + band * (ci + 1) + 8;
-          if (left + 170 > W) left = m.l + band * ci - 178;
-          tip.style.left = left + 'px'; tip.style.top = m.t + 10 + 'px';
+          var left = (m.l + band * (ci + 1)) * scale + 8;
+          if (left + 170 > displayWidth) left = (m.l + band * ci) * scale - 178;
+          tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (m.t * scale + 10) + 'px';
         });
         hit.addEventListener('mouseleave', function () { hover.setAttribute('opacity', 0); tip.hidden = true; });
         svg.appendChild(hit);

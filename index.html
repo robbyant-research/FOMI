@@ -7,8 +7,8 @@
   <title>FOMI: A Force-Feedback Manipulation Interface for Teaching Contact-Rich Manipulation</title>
   <meta name="description" content="FOMI provides intuitive mechanical force feedback during robot-free collection of contact-rich demonstrations and supports teleoperation for policy learning.">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="style.css?v=20261012-fomi73">
-  <script src="page.js?v=20261012-fomi15" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261013-fomi89">
+  <script src="page.js?v=20261013-fomi16" defer></script>
 </head>
 <body class="fomi fomi--cover">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -54,11 +54,12 @@
     </div>
   </section>
 
-  <section class="fomi-hero" id="overview" aria-labelledby="overview-title">
-    <h2 class="sr-only" id="overview-title">FOMI overview</h2>
-    <p class="section-index">01 / OVERVIEW</p>
-    <figure class="hero-figure" data-teaser-flow>
-      <div class="figure-bar"><span><i class="status-dot" aria-hidden="true"></i> INTUITIVE FORCE FEEDBACK FOR ROBOT-FREE COLLECTION</span><div class="figure-controls"><span>FOMI / OVERVIEW</span><button class="teaser-motion" type="button" data-flow-toggle aria-controls="teaser-flow-art" aria-label="Pause flow animation" hidden><span data-flow-icon aria-hidden="true">Ⅱ</span><span data-flow-label>Pause flow</span></button></div></div>
+  <section class="fomi-hero" id="overview" aria-labelledby="overview-title" data-teaser-flow>
+    <header class="overview-heading">
+      <h2 id="overview-title">OVERVIEW</h2>
+      <p id="overview-description">Overview of FOMI. The force-feedback manipulation interface incorporates a scissor-shaped mechanism to provide human operators with intuitive force feedback in robot-free collection of contact-rich demonstrations, while also supporting teleoperation for policy learning.</p>
+    </header>
+    <figure class="hero-figure" aria-labelledby="overview-title" aria-describedby="overview-description">
       <div class="teaser-artwork">
         <img src="assets/teaser_white.webp?v=e29f01d472b4" width="2364" height="1104" alt="Overview of FOMI: intuitive force feedback in robot-free collection, teleoperation, demonstration collection performance, and contact-rich policy learning." loading="lazy" decoding="async">
         <svg class="teaser-flow" id="teaser-flow-art" viewBox="0 0 2364 1104" aria-hidden="true" focusable="false">
@@ -146,24 +147,13 @@
           </g>
         </svg>
       </div>
-      <figcaption>Overview of FOMI. The force-feedback manipulation interface incorporates a scissor-shaped mechanism to provide human operators with intuitive force feedback in robot-free collection of contact-rich demonstrations, while also supporting teleoperation for policy learning.</figcaption>
     </figure>
-    <div class="hero-metrics" aria-label="Key collection results">
-      <div><span class="metric-value">+29.0<span>%</span></span><span class="metric-label">Robot-free collection efficiency</span><span class="metric-note">vs. UMI · 17.8 vs. 13.8 demos / 10 min</span></div>
-      <div><span class="metric-value">+18.3<span>%</span></span><span class="metric-label">Teleoperation collection efficiency</span><span class="metric-note">vs. GELLO · 8.4 vs. 7.1 demos / 10 min</span></div>
-      <div><span class="metric-value">4</span><span class="metric-label">Real-world contact-rich tasks</span><span class="metric-note">High success rates</span></div>
-    </div>
+    <div class="teaser-controls"><button class="teaser-motion" type="button" data-flow-toggle aria-controls="teaser-flow-art" aria-label="Pause flow animation" hidden><span data-flow-icon aria-hidden="true">Ⅱ</span><span data-flow-label>Pause flow</span></button></div>
   </section>
 
   <section class="fomi-section section-white" id="design" aria-labelledby="design-title">
     <div class="section-shell">
-      <p class="section-index">02 / MECHANICAL DESIGN</p>
-      <div class="section-heading section-heading--paired"><h2 id="design-title">Mechanical Design For<br>Intuitive Force Feedback</h2><p>During robot-free collection, FOMI’s scissor-shaped mechanism transmits object interaction forces directly to the operator’s hands without force sensors. This intuitive force feedback supports real-time adjustment in contact-rich tasks.</p></div>
-      <div class="principle-grid">
-        <article><span class="principle-number">01</span><h3 class="subsection-title">Intuitive force feedback</h3><p>During robot-free collection, actuation links transmit object interaction forces directly to the handles, providing intuitive force feedback.</p></article>
-        <article><span class="principle-number">02</span><h3 class="subsection-title">Symmetric gripper motion</h3><p>Meshed sector gears synchronize opening and closing, while parallelogram linkages keep the gripper contact surfaces parallel.</p></article>
-        <article><span class="principle-number">03</span><h3 class="subsection-title">Handles for load support</h3><p>The handles support the interface during manipulation. With no return springs, operators actively drive opening and closing.</p></article>
-      </div>
+      <div class="section-heading section-heading--paired"><h2 id="design-title">Mechanical Design For Intuitive Force Feedback</h2><p>Actuation links in FOMI’s scissor-shaped mechanism transmit object interaction forces directly to the handles without force sensors, providing intuitive force feedback, which supports real-time adjustment in contact-rich tasks. Meshed sector gears synchronize gripper opening and closing, while the handles support the interface during manipulation.</p></div>
       <figure class="paper-figure mechanism-figure"><a href="assets/mechanism.png" target="_blank" rel="noopener" aria-label="Open the FOMI mechanism figure at full resolution"><img src="assets/mechanism.png" width="2200" height="879" alt="Mechanical design of FOMI: exploded view, direct force transmission to the handles in robot-free collection, kinematic schematic, opening and closing motion, and mechanical stops." loading="lazy"></a><figcaption>Direct force transmission path from the gripper to the handles in robot-free collection, and mechanical stops defining the gripper width limits. At full opening, the maximum gripper width reaches 84.9 mm.</figcaption></figure>
       <details class="figure-details figure-disclosure sensor-details">
         <summary class="subsection-title">Sensor layout <span class="sensor-toggle-text sensor-toggle-expand">Click to expand</span><span class="sensor-toggle-text sensor-toggle-collapse">Click to collapse</span></summary>
@@ -177,10 +167,9 @@
 
   <section class="fomi-section section-neutral" id="collection" aria-labelledby="collection-title">
     <div class="section-shell">
-      <p class="section-index">03 / COLLECTION</p>
       <h2 id="collection-title">Demonstration Collection</h2>
       <div class="collection-notes">
-        <p>Built around FOMI, the demonstration collection system integrates sensor calibration, data acquisition, and synchronization for robot-free collection. Through calibration and mapping, the system further converts sensor measurements of FOMI’s pose changes and gripper opening into robot end-effector pose targets and gripper width commands, <strong>enabling teleoperated demonstration collection with the same interface.</strong> In teleoperation, the operator relies on visual feedback, while FOMI’s mechanical stops provide a physical indication of gripper width command limits without conveying object interaction forces.</p>
+        <p>FOMI supports robot-free collection through sensor calibration, data acquisition, and synchronization, and enables teleoperation by mapping pose and gripper measurements to robot commands. Teleoperation relies on visual feedback; mechanical stops indicate gripper width command limits without conveying object interaction forces.</p>
       </div>
       <div class="collection-videos" aria-labelledby="collection-videos-title">
         <h3 class="subsection-title" id="collection-videos-title">Robot-free collection</h3>
@@ -215,10 +204,9 @@
     </div>
   </section>
 
-  <section class="fomi-section section-neutral" id="demo" aria-labelledby="demo-title">
+  <section class="fomi-section section-white" id="demo" aria-labelledby="demo-title">
     <div class="section-shell">
-      <p class="section-index">04 / DEMO</p>
-      <div class="section-heading section-heading--paired"><h2 id="demo-title">Contact-Rich<br>Manipulation Tasks</h2><p>Representative rollouts of policies trained on <strong>robot-free demonstrations</strong> across four tasks.</p></div>
+      <div class="section-heading section-heading--paired"><h2 id="demo-title">Contact-Rich Manipulation Tasks</h2><p>Representative rollouts of policies trained on <strong>robot-free demonstrations</strong> across four tasks.</p></div>
       <div class="demos__stage" data-demo>
         <div class="media demos__player">
           <video data-demo-player data-autoplay muted loop playsinline controls preload="none" data-src="assets/demos/pick-chip.mp4?v=03ca8c77bf06" poster="assets/demos/pick-chip.jpg?v=97c2be430ccc" aria-label="Pick Chip"></video>
@@ -232,71 +220,61 @@
         <p class="demos__speed" data-demo-speed aria-live="polite" aria-atomic="true">Speed: 1×</p>
       </div>
       <div class="cross-embodiment" aria-labelledby="cross-embodiment-title">
-        <div class="section-heading section-heading--paired">
-          <h3 class="subsection-title" id="cross-embodiment-title">Deployment across<br> robot embodiments</h3>
-          <p>We deploy the Open Pouch policy trained on 25 robot-free demonstrations directly on a dual-arm Flexiv platform.</p>
-        </div>
+        <h3 class="subsection-title" id="cross-embodiment-title">Deployment across robot embodiments</h3>
         <figure class="cross-embodiment__figure">
           <div class="media cross-embodiment__player"><video data-autoplay muted loop playsinline controls preload="none" data-src="assets/demos/open-pouch-flexiv.mp4?v=fc35d1d7d13b" poster="assets/demos/open-pouch-flexiv.jpg?v=de373c368e6a" width="1024" height="576" aria-label="Open Pouch on Flexiv"></video></div>
-          <figcaption><span>Open Pouch · Flexiv</span><span class="video-speed">Speed: 1×</span></figcaption>
+          <figcaption><span class="video-speed">Speed: 1×</span></figcaption>
         </figure>
       </div>
     </div>
   </section>
-  <section class="fomi-section section-white" id="results" aria-labelledby="results-title">
+  <section class="fomi-section section-neutral" id="results" aria-labelledby="results-title">
     <div class="section-shell">
-      <p class="section-index">05 / RESULTS</p>
       <h2 class="sr-only" id="results-title">Results</h2>
       <section class="results-group" aria-labelledby="collection-performance-title">
-      <div class="section-heading"><h3 class="results-subtitle" id="collection-performance-title">Demonstration<br>Collection Performance</h3><p>FOMI achieves the highest mean collection efficiency on all four tasks. It also achieves the highest completion rate among the evaluated interfaces in both collection modes.</p></div>
+      <div class="section-heading"><h3 class="results-subtitle" id="collection-performance-title">Demonstration Collection Performance</h3><p>In an exploratory study, three operators with no prior robot operation experience used each interface on all four tasks. FOMI achieved the highest mean collection efficiency on each task and the highest overall completion rate in both robot-free collection and teleoperation.</p></div>
       <div class="result-row">
         <details class="figure-details figure-disclosure result-figure-details">
           <summary class="subsection-title">Robot-free collection <span class="sensor-toggle-text sensor-toggle-expand">Click to expand</span><span class="sensor-toggle-text sensor-toggle-collapse">Click to collapse</span></summary>
           <figure class="paper-figure"><img src="assets/Slide05_final_frame.webp?v=221721c1c271" width="1440" height="810" alt="Robot-free collection interfaces: FOMI, UMI, and RING." loading="lazy" decoding="async"></figure>
         </details>
-        <div class="result-summary"><p class="result-number">17.8</p><p class="result-unit">successful demonstrations / 10 min</p><div class="result-comparison"><b>+29.0%</b><span>over UMI (13.8)</span></div><div class="result-comparison"><b>+53.4%</b><span>over RING (11.6)</span></div><div class="completion-stat"><b>86.6%</b><span>completion rate</span></div><div class="result-comparison"><b>+34.1%</b><span>over UMI (64.6%)</span></div><div class="result-comparison"><b>+34.3%</b><span>over RING (64.5%)</span></div></div>
-        <figure class="chart" data-chart data-max="24" data-unit=" "><figcaption class="chart__title">Successful demonstrations / 10 min</figcaption><div class="chart__scroll"></div><ul class="chart__legend"></ul><table class="chart__table"><caption class="sr-only">Robot-free collection efficiency, mean successful demonstrations per 10-minute session</caption><thead><tr><th scope="col">Task</th><th scope="col">FOMI</th><th scope="col">UMI</th><th scope="col">RING</th></tr></thead><tbody><tr><th scope="row">Pick Chip</th><td>22.0</td><td>16.6</td><td>10.7</td></tr><tr><th scope="row">Insert Tube</th><td>17.7</td><td>13.8</td><td>9.9</td></tr><tr><th scope="row">Wash Dish</th><td>13.3</td><td>11.0</td><td>10.9</td></tr><tr><th scope="row">Open Pouch</th><td>18.2</td><td>13.7</td><td>15.0</td></tr></tbody></table></figure>
+        <figure class="chart" data-chart data-chart-width="820" data-max="24" data-unit=" "><figcaption class="chart__title">Successful demonstrations / 10 min</figcaption><div class="chart__scroll"></div><ul class="chart__legend"></ul><table class="chart__table"><caption class="sr-only">Robot-free collection efficiency, mean successful demonstrations per 10-minute session</caption><thead><tr><th scope="col">Task</th><th scope="col">FOMI</th><th scope="col">UMI</th><th scope="col">RING</th></tr></thead><tbody><tr><th scope="row">Pick Chip</th><td>22.0</td><td>16.6</td><td>10.7</td></tr><tr><th scope="row">Insert Tube</th><td>17.7</td><td>13.8</td><td>9.9</td></tr><tr><th scope="row">Wash Dish</th><td>13.3</td><td>11.0</td><td>10.9</td></tr><tr><th scope="row">Open Pouch</th><td>18.2</td><td>13.7</td><td>15.0</td></tr></tbody></table></figure>
       </div>
       <div class="result-row">
         <details class="figure-details figure-disclosure result-figure-details">
           <summary class="subsection-title">Teleoperation <span class="sensor-toggle-text sensor-toggle-expand">Click to expand</span><span class="sensor-toggle-text sensor-toggle-collapse">Click to collapse</span></summary>
           <figure class="paper-figure"><img src="assets/Slide13_final_frame.webp?v=b8785a4c5a6c" width="1440" height="810" alt="Teleoperation interfaces: FOMI, GELLO, and VR." loading="lazy" decoding="async"></figure>
         </details>
-        <div class="result-summary"><p class="result-number">8.4</p><p class="result-unit">successful demonstrations / 10 min</p><div class="result-comparison"><b>+18.3%</b><span>over GELLO (7.1)</span></div><div class="result-comparison"><b>+147.1%</b><span>over VR (3.4)</span></div><div class="completion-stat"><b>75.6%</b><span>completion rate</span></div><div class="result-comparison"><b>+40.0%</b><span>over GELLO (54.0%)</span></div><div class="result-comparison"><b>+121.7%</b><span>over VR (34.1%)</span></div></div>
-        <figure class="chart" data-chart data-max="12" data-unit=" "><figcaption class="chart__title">Successful demonstrations / 10 min</figcaption><div class="chart__scroll"></div><ul class="chart__legend"></ul><table class="chart__table"><caption class="sr-only">Teleoperation collection efficiency, mean successful demonstrations per 10-minute session</caption><thead><tr><th scope="col">Task</th><th scope="col">FOMI</th><th scope="col">GELLO</th><th scope="col">VR</th></tr></thead><tbody><tr><th scope="row">Pick Chip</th><td>7.2</td><td>6.4</td><td>0.2</td></tr><tr><th scope="row">Insert Tube</th><td>7.4</td><td>4.9</td><td>1.6</td></tr><tr><th scope="row">Wash Dish</th><td>9.3</td><td>8.8</td><td>7.2</td></tr><tr><th scope="row">Open Pouch</th><td>9.7</td><td>8.1</td><td>4.6</td></tr></tbody></table></figure>
+        <figure class="chart" data-chart data-chart-width="820" data-max="12" data-unit=" "><figcaption class="chart__title">Successful demonstrations / 10 min</figcaption><div class="chart__scroll"></div><ul class="chart__legend"></ul><table class="chart__table"><caption class="sr-only">Teleoperation collection efficiency, mean successful demonstrations per 10-minute session</caption><thead><tr><th scope="col">Task</th><th scope="col">FOMI</th><th scope="col">GELLO</th><th scope="col">VR</th></tr></thead><tbody><tr><th scope="row">Pick Chip</th><td>7.2</td><td>6.4</td><td>0.2</td></tr><tr><th scope="row">Insert Tube</th><td>7.4</td><td>4.9</td><td>1.6</td></tr><tr><th scope="row">Wash Dish</th><td>9.3</td><td>8.8</td><td>7.2</td></tr><tr><th scope="row">Open Pouch</th><td>9.7</td><td>8.1</td><td>4.6</td></tr></tbody></table></figure>
       </div>
-      <p class="results-interpretation">In an exploratory within-subject evaluation, three operators with no prior robot operation experience used each interface on all four tasks. Collection efficiency measures successful demonstrations per 10-minute session, averaged over three sessions per operator and then across operators. Completion rate is the total number of successful demonstrations divided by total attempts across operators, sessions, and tasks for each interface. These results suggest that FOMI’s efficiency gains partly stem from fewer failed attempts: intuitive force feedback in robot-free collection and mechanical stops indicating gripper width command limits in teleoperation support real-time action adjustment.</p>
-      </section>
-      <section class="policy-performance results-group" aria-labelledby="policy-performance-title">
-        <div class="section-heading"><h3 class="results-subtitle" id="policy-performance-title">Policy Performance</h3><p>We fine-tune the <span class="policy-model">π<sub>0.5</sub></span> vision-language-action (VLA) model separately on robot-free and teleoperated demonstrations.</p></div>
-        <div class="policy-charts-grid" id="policy-charts" data-policy-layout>
-          <div class="policy-chart">
-            <h4 class="subsection-title">Policy performance with<br> robot-free demonstrations</h4>
-            <figure class="paper-figure">
-              <a href="assets/robot_free_policy.png" target="_blank" rel="noopener" data-policy-expand aria-controls="policy-charts" aria-label="Open robot-free policy performance at full resolution"><img src="assets/robot_free_policy.png" width="2200" height="918" alt="Policy performance with 25, 50, and 100 robot-free demonstrations per task: success rate and progress rate." loading="lazy"></a>
-              <figcaption>Policy performance with increasing numbers of robot-free demonstrations per task: 25, 50, and 100. Left: success rate. Right: progress rate. <button class="figure-toggle" type="button" data-policy-expand aria-controls="policy-charts" aria-expanded="false" hidden>Enlarge figure ↗</button></figcaption>
-            </figure>
-            <div class="policy-results">
-              <article><span class="mode-label">100 ROBOT-FREE DEMONSTRATIONS / TASK</span><p class="policy-rate">78.4<span>%</span></p><h4>Average success rate</h4><p class="policy-model-note">Fine-tuned <span class="policy-model">π<sub>0.5</sub></span> policy</p></article>
-            </div>
-          </div>
-          <div class="policy-chart">
-            <h4 class="subsection-title">Policy performance with<br> teleoperated demonstrations</h4>
-            <figure class="paper-figure">
-              <a href="assets/Teleoperation_Success_Progress.png" target="_blank" rel="noopener" data-policy-expand aria-controls="policy-charts" aria-label="Open teleoperation policy performance at full resolution"><img src="assets/Teleoperation_Success_Progress.png" width="2200" height="914" alt="Policy performance with 25 teleoperated demonstrations per task: success rate and progress rate." loading="lazy"></a>
-              <figcaption>Policy performance with 25 teleoperated demonstrations per task. Left: success rate. Right: progress rate. <button class="figure-toggle" type="button" data-policy-expand aria-controls="policy-charts" aria-expanded="false" hidden>Enlarge figure ↗</button></figcaption>
-            </figure>
-            <div class="policy-results">
-              <article><span class="mode-label">25 TELEOPERATED DEMONSTRATIONS / TASK</span><p class="policy-rate">70.5<span>%</span></p><h4>Average success rate</h4><p class="policy-model-note">Fine-tuned <span class="policy-model">π<sub>0.5</sub></span> policy</p></article>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   </section>
 
+  <section class="fomi-section section-white policy-performance results-group" id="policy-performance" aria-labelledby="policy-performance-title">
+    <div class="section-shell">
+        <div class="section-heading"><h3 class="results-subtitle" id="policy-performance-title">Policy Performance</h3><p>We fine-tune the <span class="policy-model">π<sub>0.5</sub></span> vision-language-action (VLA) model separately on robot-free and teleoperated demonstrations. The policies achieve average success rates of <strong>78.4%</strong> with 100 robot-free demonstrations per task and <strong>70.5%</strong> with 25 teleoperated demonstrations per task.</p></div>
+        <div class="policy-charts-grid" id="policy-charts" data-policy-layout>
+          <div class="policy-chart">
+            <h4 class="subsection-title">Robot-free demonstrations</h4>
+            <figure class="paper-figure">
+              <a href="assets/robot_free_policy.png" target="_blank" rel="noopener" data-policy-expand aria-controls="policy-charts" aria-label="Open robot-free policy performance at full resolution"><img src="assets/robot_free_policy.png" width="2200" height="918" alt="Policy performance with 25, 50, and 100 robot-free demonstrations per task: success rate and progress rate." loading="lazy"></a>
+              <figcaption>Policy performance with increasing numbers of robot-free demonstrations per task: 25, 50, and 100. Left: success rate. Right: progress rate. <button class="figure-toggle" type="button" data-policy-expand aria-controls="policy-charts" aria-expanded="false" hidden>Enlarge figure ↗</button></figcaption>
+            </figure>
+          </div>
+          <div class="policy-chart">
+            <h4 class="subsection-title">Teleoperated demonstrations</h4>
+            <figure class="paper-figure">
+              <a href="assets/Teleoperation_Success_Progress.png" target="_blank" rel="noopener" data-policy-expand aria-controls="policy-charts" aria-label="Open teleoperation policy performance at full resolution"><img src="assets/Teleoperation_Success_Progress.png" width="2200" height="914" alt="Policy performance with 25 teleoperated demonstrations per task: success rate and progress rate." loading="lazy"></a>
+              <figcaption>Policy performance with 25 teleoperated demonstrations per task. Left: success rate. Right: progress rate. <button class="figure-toggle" type="button" data-policy-expand aria-controls="policy-charts" aria-expanded="false" hidden>Enlarge figure ↗</button></figcaption>
+            </figure>
+          </div>
+        </div>
+    </div>
+  </section>
+
   <section class="fomi-section section-white citation-section" id="citation" aria-labelledby="citation-title">
-    <div class="section-shell citation-layout"><div><p class="section-index">06 / REFERENCE</p><h2 id="citation-title">Cite FOMI</h2><p>Hardware designs, code, and datasets will be released.</p></div><div class="bibtex"><button class="bibtex__copy" type="button" data-copy="#bib-text">Copy</button><pre class="bibtex__code" id="bib-text">@misc{shen2026fomi,
+    <div class="section-shell citation-layout"><div><h2 id="citation-title">Cite FOMI</h2></div><div class="bibtex"><button class="bibtex__copy" type="button" data-copy="#bib-text">Copy</button><pre class="bibtex__code" id="bib-text">@misc{shen2026fomi,
   title = {FOMI: A Force-Feedback Manipulation Interface
            for Teaching Contact-Rich Manipulation},
   author = {Shen, Yishu and Luo, Yiming and Wang, Ruilin
